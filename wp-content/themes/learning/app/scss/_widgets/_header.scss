@@ -1,0 +1,129 @@
+.header {
+    position: fixed;
+    padding: 15px 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+    & .container{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    &__basket, & button{
+      background: none;
+      border: none;
+      & svg{
+        @include size(100%);
+        fill: transparent;
+        transition: $default-transition;
+      }
+    }
+    &__sign{
+      margin: 0 25px 0 auto;
+    }
+    &__sign, &__basket{
+      padding: 0;
+      @include size(25px);
+      &:hover{
+        & svg{
+          fill: #9AA8C3;
+        }
+      }
+    }
+    &__basket{
+      padding: 0;
+      position: relative;
+      @include size(25px);
+      &:hover{
+        & svg{
+          fill: #9AA8C3;
+        }
+      }
+      & span{
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        bottom: -2px;
+        right: -2px;
+        font-size: 5px;
+        color: $secondary-color;
+        @include size(12px);
+        background: #02B549;
+        border-radius: 50%;
+        &.active{
+          animation: animBasket 5s ease infinite;
+        }
+      }
+    }
+    & .menu{
+      margin-left: auto;
+    }
+    &.active{
+      background: rgba(255, 255, 255, 1);
+    }
+    &__search{
+      position: absolute;
+      display: flex;
+      bottom: -40px;
+      right: -200px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.7);
+      transition: all 0.5s ease-in-out;
+      @media screen and (max-width: 480px){
+        right: -260px;
+      }
+      & button{
+        padding: 5px 5px 5px 0;
+        display: flex;
+        justify-content: flex-start;
+        @include size(50px, 40px);
+      }
+      & svg{
+        pointer-events: none;
+      }
+      & input{
+        padding: 0 20px;
+        width: 200px;
+        font-size: 1rem;
+        border: none;
+        background: transparent;
+        @media screen and (max-width: 480px){
+          width: 260px;
+        }
+      }
+      &.active{
+        right: 0;
+      }
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .header{
+      & .logo{
+        margin: 0 auto;
+      }
+      &__sign{
+        margin: 0 18px 0 0;
+  
+      }
+    }
+  }
+  
+  @keyframes animBasket {
+    0%{
+      transform: scale(1);
+    }
+    5%{
+      transform: scale(2);
+    }
+    10%{
+      transform: scale(1);
+    }
+    100%{
+      transform: scale(1);
+    }
+  }

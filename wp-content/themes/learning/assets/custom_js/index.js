@@ -1,4 +1,4 @@
-
+/* 
 var animCanvases = document.querySelectorAll('.anim-canvas');
 animCanvases.forEach(function(canvas, index){
 	canvas.id = 'canvas_' + index;
@@ -50,4 +50,4 @@ function initPaper(id, canvasElement) {
 			type: 'continuous'
 		});
 	}
-}
+} */
